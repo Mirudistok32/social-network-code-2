@@ -1,15 +1,13 @@
 import { instance } from "./base-config-api";
 
-type IsFollowType = boolean
-
-type CommonFollowType<T = {}> = {
+type CommonFollowResponseType<T = {}> = {
     resultCode: number
     messages: Array<string>
     data: T
 }
 
 export const followAPI = {
-    isFollow: (userId: number) => instance.get<IsFollowType>(`/follow/${userId}`),
-    follow: (userId: number) => instance.post<CommonFollowType>(`/follow/${userId}`),
-    unfollow: (userId: number) => instance.delete<CommonFollowType>(`/follow/${userId}`),
+    isFollow: (userId: number) => instance.get<boolean>(`/follow/${userId}`),
+    follow: (userId: number) => instance.post<CommonFollowResponseType>(`/follow/${userId}`),
+    unfollow: (userId: number) => instance.delete<CommonFollowResponseType>(`/follow/${userId}`),
 } 
