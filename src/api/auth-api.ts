@@ -19,6 +19,7 @@ type CommonAuthResponseType<T = {}> = {
 
 export const authAPI = {
     isAuthMe: () => instance.get<CommonAuthResponseType<AuthMeType>>('/auth/me'),
-    loginIn: (email: string, password: string, rememberMe: boolean, captcha: boolean = false) => instance.post<CommonAuthResponseType<LoginInType>>('/auth/login', { email, password, rememberMe }),
+    loginIn: (email: string, password: string, rememberMe: boolean, captcha: null | string = null) =>
+        instance.post<CommonAuthResponseType<LoginInType>>('/auth/login', { email, password, rememberMe, captcha }),
     loginOut: () => instance.delete<CommonAuthResponseType>('/auth/login'),
 }
