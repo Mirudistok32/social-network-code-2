@@ -1,4 +1,3 @@
-import { boolean } from "yup";
 import { instance } from "./base-config-api";
 import { PhotosType } from "./profile-api";
 
