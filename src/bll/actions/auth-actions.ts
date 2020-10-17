@@ -29,7 +29,6 @@ export const getAuthMeThunk = (): ThunkType => {
 
             if (response.data.resultCode === ResulteCodesEnum.Error) {
                 console.error(response.data.messages)
-                throw Error("You are not authorized") //?
             }
 
         } catch (error) {
@@ -53,7 +52,6 @@ export const loginInThunk = (email: string, password: string, rememberMe: boolea
 
             if (response.data.resultCode === ResulteCodesEnum.Error) {
                 console.error(response.data.messages)
-                throw Error("Incorrect data")
             }
 
         } catch (error) {
@@ -73,11 +71,10 @@ export const loginOutThunk = (): ThunkType => {
 
             if (response.data.resultCode === ResulteCodesEnum.Error) {
                 console.error(response.data.messages)
-                throw Error("I couldn't get out")
             }
 
         } catch (error) {
-            console.log(error)
+            console.log("loginOutThunk " + error)
         }
     }
 }
@@ -88,7 +85,7 @@ export const getCaptchaSecurityThunk = (): ThunkType => {
             const response = await captchaAPI.getCaptchaURL()
             dispatch(actions.setCaptchaURL(response.data.url))
         } catch (error) {
-            console.log(error)
+            console.log("getCaptchaSecurityThunk " + error)
         }
     }
 }
