@@ -1,4 +1,3 @@
-import { bool, boolean } from 'yup';
 import { ActionsAuthType } from './../actions/auth-actions';
 
 type InitialStateType = typeof initialState

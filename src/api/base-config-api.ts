@@ -8,3 +8,12 @@ export const instance = Axios.create({
     },
     withCredentials: true
 })
+
+export enum ResulteCodesEnum {
+    Success = 0,
+    Error = 1
+}
+
+export enum ResultCodeForCapcthaEnum {
+    CaptchaIsRequired = 10
+}

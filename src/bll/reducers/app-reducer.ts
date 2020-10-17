@@ -6,5 +6,10 @@ const initialState = {
 }
 
 export const appReducer = (state = initialState, action: ActionsAppType): InitialStateType => {
-    return state
+    switch (action.type) {
+        case "APP/AUTH/SET_INITIALIZE": {
+            return { ...state, isInitialize: true }
+        }
+        default: { return state }
+    }
 }
