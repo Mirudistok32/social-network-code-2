@@ -9,5 +9,17 @@ const initialState = {
 }
 
 export const authReducer = (state = initialState, action: ActionsAuthType): InitialStateType => {
-    return state
+    switch (action.type) {
+        case 'APP/AUTH/SET_AUTHORIZATION': {
+            return { ...state, ...action.payload }
+        }
+        case 'APP/AUTH/SET_CAPTHCA_URL': {
+            return { ...state, ...action.payload }
+        }
+        case 'APP/AUTH/SET_OWNER_DATA_FROM_AUTH': {
+            return { ...state, ...action.payload }
+        }
+        default: { return state }
+    }
+
 }
