@@ -1,7 +1,7 @@
 import { ActionsSecurityType } from './../actions/security-actions';
 type InitialStateType = typeof initialState
 const initialState = {
-    captchaURL: '' as string
+    captchaURL: null as null | string
 }
 
 export const securityReducer = (state = initialState, action: ActionsSecurityType): InitialStateType => {

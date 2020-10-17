@@ -1,4 +1,4 @@
-import { captchaAPI } from './../../api/security-api';
+import { setCaptchThunk } from './security-actions';
 import { ResulteCodesEnum, ResultCodeForCapcthaEnum } from './../../api/base-config-api';
 import { ThunkDispatch, ThunkAction } from "redux-thunk"
 import { authAPI } from "../../api/auth-api"
@@ -8,7 +8,6 @@ import { AppStateType, InferActionsTypes } from "../store"
 const actions = {
     setAutorization: (auth: boolean) => ({ type: 'APP/AUTH/SET_AUTHORIZATION', payload: { auth } } as const),
     setOwnerDataFromAuth: (id: string, email: string, login: string) => ({ type: 'APP/AUTH/SET_OWNER_DATA_FROM_AUTH', payload: { id, email, login } } as const),
-    setCaptchaURL: (captcha: string) => ({ type: 'APP/AUTH/SET_CAPTHCA_URL', payload: { captcha } } as const)
 }
 export type ActionsAuthType = InferActionsTypes<typeof actions>
 export const actionsAuth = actions
@@ -38,7 +37,7 @@ export const getAuthMeThunk = (): ThunkType => {
     }
 }
 
-export const loginInThunk = (email: string, password: string, rememberMe: boolean, captcha?: string): ThunkType => {
+export const loginInThunk = (email: string, password: string, rememberMe: boolean, captcha: null | string = null): ThunkType => {
     return async (dispatch: DispatchType) => {
         try {
             const response = await authAPI.loginIn(email, password, rememberMe, captcha)
@@ -48,7 +47,7 @@ export const loginInThunk = (email: string, password: string, rememberMe: boolea
             }
 
             if (response.data.resultCode === ResultCodeForCapcthaEnum.CaptchaIsRequired) {
-                dispatch(getCaptchaSecurityThunk())
+                dispatch(setCaptchThunk())
             }
 
             if (response.data.resultCode === ResulteCodesEnum.Error) {
@@ -76,17 +75,6 @@ export const loginOutThunk = (): ThunkType => {
 
         } catch (error) {
             console.log("loginOutThunk " + error)
-        }
-    }
-}
-
-export const getCaptchaSecurityThunk = (): ThunkType => {
-    return async (dispatch: DispatchType) => {
-        try {
-            const response = await captchaAPI.getCaptchaURL()
-            dispatch(actions.setCaptchaURL(response.data.url))
-        } catch (error) {
-            console.log("getCaptchaSecurityThunk " + error)
         }
     }
 }

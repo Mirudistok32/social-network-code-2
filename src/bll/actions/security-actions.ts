@@ -13,13 +13,13 @@ export const actionsSecurity = actions
 type DispatchType = ThunkDispatch<AppStateType, unknown, ActionsSecurityType>
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsSecurityType>
 
-export const getProfileThunk = (userId: number): ThunkType => {
+export const setCaptchThunk = (): ThunkType => {
     return async (dispatch: DispatchType) => {
         try {
             const response = await captchaAPI.getCaptchaURL()
             dispatch(actions.setCaptch(response.data.url))
         } catch (error) {
-            console.log("getProfileThunk " + error)
+            console.log("setCaptchThunk " + error)
         }
     }
 }
