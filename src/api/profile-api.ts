@@ -37,7 +37,7 @@ export const profileAPI = {
     getProfile: (userId: number) => instance.get<ProfileType>(`/profile/${userId}`),
     getProfileStatus: (userId: number) => instance.get<string>(`/profile/status/${userId}`),
     changeOwnerStatus: (status: string) => instance.put<CommonProfileResponseType>(`/profile/status`, { status }),
-    changeOwnerPhoto: (photo: File) => instance.put<CommonProfileResponseType<PhotosType>>(`/profile/photo`, photo, {
+    changeOwnerPhoto: (photo: FormData) => instance.put<CommonProfileResponseType<PhotosType>>(`/profile/photo`, photo, {
         headers: {
             'Content-Type': 'multipart/form-data'
         }

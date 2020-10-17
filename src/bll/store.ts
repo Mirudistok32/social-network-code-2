@@ -1,3 +1,4 @@
+import { profileReducer } from './reducers/profile-reducer';
 import { usersReducer } from './reducers/users-reducer';
 import { appReducer } from './reducers/app-reducer';
 import { authReducer } from './reducers/auth-reducer';
@@ -8,7 +9,8 @@ import thunk from "redux-thunk";
 const rootReducers = combineReducers({
     authReducer,
     appReducer,
-    usersReducer
+    usersReducer,
+    profileReducer
 })
 
 export type AppStateType = ReturnType<typeof rootReducers>
