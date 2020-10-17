@@ -1,10 +1,12 @@
+import { appReducer } from './reducers/app-reducer';
 import { authReducer } from './reducers/auth-reducer';
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 
 const rootReducers = combineReducers({
-    authReducer
+    authReducer,
+    appReducer,
 })
 
 export type AppStateType = ReturnType<typeof rootReducers>
