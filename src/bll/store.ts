@@ -1,3 +1,4 @@
+import { securityReducer } from './reducers/security-reducer';
 import { profileReducer } from './reducers/profile-reducer';
 import { usersReducer } from './reducers/users-reducer';
 import { appReducer } from './reducers/app-reducer';
@@ -10,7 +11,8 @@ const rootReducers = combineReducers({
     authReducer,
     appReducer,
     usersReducer,
-    profileReducer
+    profileReducer,
+    securityReducer
 })
 
 export type AppStateType = ReturnType<typeof rootReducers>
