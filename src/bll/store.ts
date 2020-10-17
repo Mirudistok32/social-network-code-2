@@ -1,3 +1,4 @@
+import { followReducer } from './reducers/follow-reducer';
 import { appReducer } from './reducers/app-reducer';
 import { authReducer } from './reducers/auth-reducer';
 import { applyMiddleware, combineReducers, createStore } from "redux";
@@ -7,6 +8,7 @@ import thunk from "redux-thunk";
 const rootReducers = combineReducers({
     authReducer,
     appReducer,
+    followReducer
 })
 
 export type AppStateType = ReturnType<typeof rootReducers>
