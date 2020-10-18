@@ -1,3 +1,4 @@
+import { AuthMeType } from './../../api/auth-api';
 import { setCaptchThunk } from './security-actions';
 import { ResulteCodesEnum, ResultCodeForCapcthaEnum } from './../../api/base-config-api';
 import { ThunkDispatch, ThunkAction } from "redux-thunk"
@@ -7,7 +8,7 @@ import { AppStateType, InferActionsTypes } from "../store"
 
 const actions = {
     setAutorization: (auth: boolean) => ({ type: 'APP/AUTH/SET_AUTHORIZATION', payload: { auth } } as const),
-    setOwnerDataFromAuth: (id: string, email: string, login: string) => ({ type: 'APP/AUTH/SET_OWNER_DATA_FROM_AUTH', payload: { id, email, login } } as const),
+    setOwnerDataFromAuth: (data: AuthMeType) => ({ type: 'APP/AUTH/SET_OWNER_DATA_FROM_AUTH', payload: { data } } as const),
 }
 export type ActionsAuthType = InferActionsTypes<typeof actions>
 export const actionsAuth = actions
@@ -22,8 +23,7 @@ export const getAuthMeThunk = (): ThunkType => {
             const response = await authAPI.isAuthMe()
 
             if (response.data.resultCode === ResulteCodesEnum.Success) {
-                const { id, email, login } = response.data.data
-                dispatch(actions.setOwnerDataFromAuth(id, email, login))
+                dispatch(actions.setOwnerDataFromAuth(response.data.data))
                 dispatch(actions.setAutorization(true))
             }
 

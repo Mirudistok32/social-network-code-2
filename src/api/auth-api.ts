@@ -1,7 +1,7 @@
 import { instance } from './base-config-api';
 
 
-type AuthMeType = {
+export type AuthMeType = {
     id: string
     email: string
     login: string
