@@ -1,1 +1,45 @@
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+  color: #231f20;
+  background-color: #efe6dd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
 
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+input,
+textarea {
+  border-style: none;
+}
+
+button {
+  cursor: pointer;
+  border-style: none;
+}
+
+ul,
+ol,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #231f20;
+}
