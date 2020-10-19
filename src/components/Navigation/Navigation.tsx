@@ -1,7 +1,15 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useMemo } from 'react';
+import { v4 } from 'uuid';
 import { PATH } from '../../routers/routers';
+import { NavigationElement } from './NavigationElement/NavigationElement'
 import s from './Navigation.module.scss';
+
+const listLinks = [
+  { id: v4(), path: PATH.profile, title: "perm_identity" },
+  { id: v4(), path: PATH.messages, title: "chat" },
+  { id: v4(), path: PATH.friends, title: "people" },
+  { id: v4(), path: PATH.search, title: "person_search" },
+]
 
 type PropsType = {
 
@@ -11,49 +19,16 @@ export const Navigation: React.FC<PropsType> = React.memo((props) => {
 
   const { } = props
 
+  const renderListLinks = useMemo(() => listLinks.map(i => {
+    return <NavigationElement key={i.id} path={i.path} title={i.title} />
+  }), [])
+
   return (
     <div className={s.navigation}>
       <ul className={s.navigation__list}>
-        <li className={s.navigation__element}>
-          <NavLink
-            activeClassName={s['navigation__element-link-active']}
-            className={s['navigation__element-link']}
-            to={PATH.profile}>
-            <span className="material-icons">
-              perm_identity
-            </span>
-          </NavLink>
-        </li>
-        <li className={s.navigation__element}>
-          <NavLink
-            activeClassName={s['navigation__element-link-active']}
-            className={s['navigation__element-link']}
-            to={PATH.messages}>
-            <span className="material-icons">
-              chat
-            </span>
-          </NavLink>
-        </li>
-        <li className={s.navigation__element}>
-          <NavLink
-            activeClassName={s['navigation__element-link-active']}
-            className={s['navigation__element-link']}
-            to={PATH.friends}>
-            <span className="material-icons">
-              people
-            </span>
-          </NavLink>
-        </li>
-        <li className={s.navigation__element}>
-          <NavLink
-            activeClassName={s['navigation__element-link-active']}
-            className={s['navigation__element-link']}
-            to={PATH.search}>
-            <span className="material-icons">
-              person_search
-            </span>
-          </NavLink>
-        </li>
+        {
+          renderListLinks
+        }
       </ul>
     </div>
   );

@@ -1,6 +1,5 @@
 @import "../../scss/variable";
 .navigation {
-  $height-nav: 80px;
   height: $height-nav;
   margin-bottom: 80px;
   &__list {
@@ -8,40 +7,5 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  &__element {
-    height: inherit;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 2px;
-  }
-  &__element-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: inherit;
-    width: $height-nav;
-    border-radius: 10px;
-    transition: $transition;
-    background-color: rgba($red, 0.2);
-    &:hover {
-      box-shadow: 0 0 10px 1px $black;
-      span {
-        color: $red;
-      }
-    }
-    span {
-      transition: $transition;
-      color: $black;
-      font-size: 3em;
-    }
-    &-active {
-      background-color: rgba($blue, 0.2);
-      box-shadow: inset 0 0 1px 0px $black;
-      span {
-        color: $blue;
-      }
-    }
   }
 }
