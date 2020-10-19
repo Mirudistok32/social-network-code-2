@@ -1,0 +1,14 @@
+@import "../../scss/variable";
+.app {
+  min-height: inherit;
+  width: inherit;
+  background: linear-gradient(-135deg, $white, rgba($blue, 0.6));
+  &__container {
+    max-width: 800px;
+    min-height: inherit;
+    margin: 0 auto;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+  }
+}
