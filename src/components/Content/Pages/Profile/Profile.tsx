@@ -27,7 +27,7 @@ export const Profile: React.FC<PropsType> = React.memo((props) => {
       </div>
       <ProfileLine />
       <ProfileContacts />
-      <ProfileLine />
+      <ProfileLine style={{marginBottom: 3}}/>
       <ProfileDescription />
       <ProfileLine />
     </div>
