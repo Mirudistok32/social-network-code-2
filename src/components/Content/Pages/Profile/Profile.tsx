@@ -15,6 +15,7 @@ export const Profile: React.FC<PropsType> = React.memo((props) => {
     <div className={s.profile}>
       <ProfileStatus title={"Люди считают, что программирование — это наука избранных, но в реальности все наоборот — просто много людей создают программы, которые используют чужие программы, как-будто строя стену из маленьких кирпичиков."} />
       <ProfileLine />
+      
     </div>
   );
 })

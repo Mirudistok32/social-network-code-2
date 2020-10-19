@@ -4,6 +4,7 @@
   @include fontPhilosopher();
   font-size: 1.1em;
   color: $black;
+  padding-bottom: 10px;
   &__p {
     text-indent: 10px;
   }

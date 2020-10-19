@@ -1,5 +1,6 @@
 @import "../../../../../scss/variable";
 .line {
   background-color: $red;
-  height: 4px;
+  height: 3px;
+  border-radius: 1px;
 }
