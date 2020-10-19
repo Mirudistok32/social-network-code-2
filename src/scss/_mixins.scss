@@ -3,3 +3,10 @@
   font-weight: $fontWeight;
   font-style: $fontStyle;
 }
+
+@mixin fontPhilosopher($fontWeight: 400, $fontStyle: normal) {
+  @import url("https://fonts.googleapis.com/css2?family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+  font-family: 'Philosopher', sans-serif;
+  font-weight: $fontWeight;
+  font-style: $fontStyle;
+}

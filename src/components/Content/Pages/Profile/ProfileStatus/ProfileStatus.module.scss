@@ -1,0 +1,10 @@
+@import "../../../../../scss/variable";
+@import "../../../../../scss/mixins";
+.status {
+  @include fontPhilosopher();
+  font-size: 1.1em;
+  color: $black;
+  &__p {
+    text-indent: 10px;
+  }
+}
