@@ -1,0 +1,10 @@
+@import "../../../../../scss/variable";
+.photo {
+  color: $black;
+  height: 220px;
+  width: 200px;
+  img {
+    height: inherit;
+    width: inherit;
+  }
+}

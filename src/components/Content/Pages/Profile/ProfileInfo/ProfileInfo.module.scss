@@ -1,0 +1,13 @@
+@import "../../../../../scss/variable";
+@import "../../../../../scss/mixins";
+.info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 10px;
+  &__name {
+    @include fontPhilosopher(700);
+    font-size: 3em;
+    color: $black;
+  }
+}
