@@ -24,12 +24,10 @@ export const Navigation: React.FC<PropsType> = React.memo((props) => {
   }), [])
 
   return (
-    <div className={s.navigation}>
-      <ul className={s.navigation__list}>
-        {
-          renderListLinks
-        }
-      </ul>
-    </div>
+    <ul className={s.navigation}>
+      {
+        renderListLinks
+      }
+    </ul>
   );
 })
