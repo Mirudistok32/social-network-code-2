@@ -7,8 +7,6 @@ type PropsType = {
 
 export const SearchUsers: React.FC<PropsType> = React.memo((props) => {
 
-  const { } = props
-
   return (
     <div className={s.users}>
 

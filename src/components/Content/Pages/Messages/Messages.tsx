@@ -7,8 +7,6 @@ type PropsType = {
 
 export const Messages: React.FC<PropsType> = React.memo((props) => {
 
-  const { } = props
-
   return (
     <div className={s.messages}>
 
