@@ -1,0 +1,10 @@
+@import "../../../../../scss/variable";
+@import "../../../../../scss/mixins";
+.title {
+  @include fontPhilosopher(600);
+  color: $black;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}

@@ -1,11 +1,13 @@
 import { makeStyles, Table, TableBody, TableCell, TableContainer, TableRow } from '@material-ui/core';
 import React from 'react';
+import { ProfileTitle } from '../ProfileTitle/ProfileTitle';
 import s from './ProfileContacts.module.scss';
 
 
 const useStyles = makeStyles({
     container: {
         maxHeight: 130,
+        paddingLeft: 20
     },
     cellTitle: {
         width: "35%",
@@ -22,7 +24,7 @@ export const ProfileContacts: React.FC<PropsType> = React.memo((props) => {
 
     return (
         <div className={s.contacts}>
-            <div className={s.contacts__title}>Мои контакты</div>
+            <ProfileTitle title={"Мои контакты"} />
             <TableContainer className={classes.container}>
                 <Table aria-label="simple table" >
                     <TableBody>
