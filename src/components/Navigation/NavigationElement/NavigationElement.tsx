@@ -10,7 +10,7 @@ type PropsType = {
 export const NavigationElement: React.FC<PropsType> = React.memo((props) => {
 
   const { path, title } = props
-
+  
   return (
     <li className={s.element}>
       <NavLink
