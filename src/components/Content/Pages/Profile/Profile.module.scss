@@ -3,8 +3,10 @@
   flex-grow: 1;
   padding: 10px 20px;
   color: #802818;
-  &__photoAndInfo{
-      padding: 10px 0;
-      display: flex;
+  display: flex;
+  flex-direction: column;
+  &__photoAndInfo {
+    padding: 10px 0;
+    display: flex;
   }
 }

@@ -6,6 +6,7 @@ import { ProfileStatus } from './ProfileStatus/ProfileStatus';
 import { ProfileInfo } from './ProfileInfo/ProfileInfo';
 import { PhotosType } from '../../../../api/profile-api';
 import { ProfileContacts } from './ProfileContacts/ProfileContacts';
+import { ProfileDescription } from './ProfileDescription/ProfileDescription';
 
 type PropsType = {
 
@@ -26,6 +27,8 @@ export const Profile: React.FC<PropsType> = React.memo((props) => {
       </div>
       <ProfileLine />
       <ProfileContacts />
+      <ProfileLine />
+      <ProfileDescription />
       <ProfileLine />
     </div>
   );

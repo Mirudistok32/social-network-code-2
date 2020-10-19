@@ -1,0 +1,18 @@
+@import "../../../../../scss/variable";
+@import "../../../../../scss/mixins";
+.description {
+  padding-top: 5px;
+  max-height: 240px;
+  overflow-y: auto;
+  flex-grow: 1;
+  color: $black;
+  &__content {
+    padding: 0 70px;
+    margin-bottom: 30px;
+  }
+  &__text {
+    text-indent: 20px;
+    font-weight: 500;
+    line-height: 1.4em;
+  }
+}
