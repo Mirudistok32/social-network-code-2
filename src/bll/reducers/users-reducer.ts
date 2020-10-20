@@ -1,5 +1,6 @@
 import { UserType } from './../../api/users-api';
 import { ActionsUsersType } from "../actions/users-actions"
+import produce from 'immer';
 
 type InitialStateType = typeof initialState
 const initialState = {
@@ -19,24 +20,24 @@ export const usersReducer = (state = initialState, action: ActionsUsersType): In
             return { ...state, ...action.payload }
         }
         case 'APP/USERS/FOLLOW': {
-            return {
-                ...state, users: state.users.map(u => {
+            return produce(state, draft => {
+                draft.users = draft.users.map(u => {
                     if (u.id === action.payload.userId) {
                         return { ...u, followed: true }
                     }
                     return u
                 })
-            }
+            })
         }
         case 'APP/USERS/UNFOLLOW': {
-            return {
-                ...state, users: state.users.map(u => {
+            return produce(state, draft => {
+                draft.users = draft.users.map(u => {
                     if (u.id === action.payload.userId) {
                         return { ...u, followed: false }
                     }
                     return u
                 })
-            }
+            })
         }
         case 'APP/USERS/SET_USERS': {
             return { ...state, ...action.payload }
